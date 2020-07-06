@@ -8,6 +8,8 @@
 <body>
   {{$msg}}<br>
   {{date('Y/m/d h:i:s')}}
-  <?php phpinfo(); ?>
+  @php
+      phpinfo();
+  @endphp
 </body>
 </html>
