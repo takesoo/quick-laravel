@@ -32,3 +32,10 @@ Route::get('/view/foreach_loop', 'ViewController@foreach_loop');
 Route::get('/view/master', 'ViewController@master');
 Route::get('/view/comp', 'ViewController@comp');
 Route::get('/view/list', 'ViewController@list');
+
+Route::get('/route/param/{id?}', 'RouteController@param')
+  ->where(['id' => '[0-9][2,3]']);
+
+Route::fallback(function() {
+  return view('route.error');
+});
