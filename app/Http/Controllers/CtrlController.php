@@ -87,5 +87,10 @@ class CtrlController extends Controller
             'result' => $name.'アップロードしました。'
         ]);
     }
+
+    public function middle()
+    {
+        return 'log is recorded!!';
+    }
 }
 

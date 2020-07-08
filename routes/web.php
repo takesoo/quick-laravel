@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\LogMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +46,8 @@ Route::get('ctrl/form', 'CtrlController@form');
 Route::post('ctrl/result', 'CtrlController@result');
 Route::get('ctrl/upload', 'CtrlController@upload');
 Route::post('ctrl/uploadfile', 'CtrlController@uploadfile');
+Route::get('ctrl/middle', 'CtrlController@middle')
+    ->middleware(LogMiddleware::class);
 
 
 
