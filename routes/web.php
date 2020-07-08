@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/hello', 'HelloController@index');
@@ -34,8 +34,22 @@ Route::get('/view/comp', 'ViewController@comp');
 Route::get('/view/list', 'ViewController@list');
 
 Route::get('/route/param/{id?}', 'RouteController@param')
-  ->where(['id' => '[0-9][2,3]']);
+    ->where(['id' => '[0-9][2,3]']);
+
+Route::get('ctrl/plain', 'CtrlController@plain');
+Route::get('ctrl/header', 'CtrlController@header');
+Route::get('ctrl/outJson', 'CtrlController@outJson');
+Route::get('ctrl/outFile', 'CtrlController@outFile');
+Route::get('ctrl/outCsv', 'CtrlController@outCsv');
+Route::get('ctrl/index', 'CtrlController@index');
+Route::get('ctrl/form', 'CtrlController@form');
+Route::post('ctrl/result', 'CtrlController@result');
+Route::get('ctrl/upload', 'CtrlController@upload');
+Route::post('ctrl/uploadfile', 'CtrlController@uploadfile');
+
+
+
 
 Route::fallback(function() {
-  return view('route.error');
+    return view('route.error');
 });
