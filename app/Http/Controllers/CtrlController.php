@@ -62,9 +62,15 @@ class CtrlController extends Controller
     public function result(Request $req)
     {
         $name = $req->name;
-        return view('ctrl.form', [
-            'result' => 'こんにちは、'.$name.'さん'
-        ]);
+        if (empty($name) || mb_strlen($name) > 10) {
+            return redirect('ctrl/form')
+                ->withInput()
+                ->with('alert', '名前は必須、または10文字以内で入力してください');
+        } else {
+            return view('ctrl.form', [
+                'result' => 'こんにちは、'.$name.'さん'
+            ]);
+        }
     }
 
     public function upload()
