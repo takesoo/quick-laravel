@@ -58,6 +58,13 @@ Route::get('record/find', 'RecordController@find');
 Route::get('record/where', 'RecordController@where');
 Route::get('record/hasmany', 'RecordController@hasmany');
 
+Route::get('save/create', 'SaveController@create');
+Route::post('save/store', 'SaveController@store');
+Route::get('save/{id}/edit', 'SaveController@edit');
+Route::patch('save/{id}', 'SaveController@update');
+Route::get('save/{id}', 'SaveController@show');
+Route::delete('save/{id}', 'SaveController@destroy');
+
 Route::fallback(function() {
     return view('route.error');
 });
